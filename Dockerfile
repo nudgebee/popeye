@@ -1,18 +1,19 @@
-# -----------------------------------------------------------------------------
-# Build...
 FROM golang:1.18.1-alpine3.14 AS build
 
 WORKDIR /popeye
+
+# Install full build environment
+RUN apk --no-cache add build-base git curl ca-certificates
 
 COPY go.mod go.sum main.go Makefile ./
 COPY internal internal
 COPY cmd cmd
 COPY types types
 COPY pkg pkg
-RUN apk --no-cache add make git gcc libc-dev binutils curl ca-certificates && make build
+
+RUN make build
 
 # -----------------------------------------------------------------------------
-# Image...
 FROM alpine:3.14.0
 
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
