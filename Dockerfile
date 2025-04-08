@@ -1,6 +1,8 @@
-FROM golang:1.18.1-alpine3.14 AS build
+FROM golang:1.23-alpine AS build
 
 WORKDIR /popeye
+
+ENV CGO_ENABLED=0
 
 # Install full build environment
 RUN apk --no-cache add build-base git curl ca-certificates
@@ -14,7 +16,7 @@ COPY pkg pkg
 RUN make build
 
 # -----------------------------------------------------------------------------
-FROM alpine:3.14.0
+FROM alpine:3.19 
 
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /popeye/execs/popeye /bin/popeye
