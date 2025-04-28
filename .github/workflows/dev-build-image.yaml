@@ -31,7 +31,7 @@ jobs:
 
     - name: Authorize AWS to Docker Push
       run: |
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 280501305789.dkr.ecr.us-east-1.amazonaws.com
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 864186153326.dkr.ecr.us-east-1.amazonaws.com
 
     - name: Create tag name
       run: echo "tag=$(date +'%Y-%m-%dT%H-%M-%S')_$GITHUB_SHA" >> $GITHUB_ENV
@@ -44,4 +44,4 @@ jobs:
         file: 'Dockerfile'
         push: true
         tags: |
-            280501305789.dkr.ecr.us-east-1.amazonaws.com/popeye:v0.11.1
+            864186153326.dkr.ecr.us-east-1.amazonaws.com/popeye:v0.11.1
