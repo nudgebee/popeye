@@ -1,5 +1,11 @@
 <img src="https://github.com/derailed/popeye/blob/master/assets/popeye_logo.png" align="right" width="250" height="auto">
- 
+
+> **This is a Nudgebee fork of [derailed/popeye](https://github.com/derailed/popeye).**
+> It pins to upstream `v0.11.1` plus a handful of build/CI tweaks. For the
+> canonical project, releases, and community, please see upstream. Container
+> images from this fork are published to
+> `ghcr.io/nudgebee/popeye` on tagged releases.
+
 # Popeye - A Kubernetes Cluster Sanitizer
 
 Popeye is a utility that scans live Kubernetes cluster and reports potential issues with deployed resources and configurations. It sanitizes your cluster based on what's deployed and not what's sitting on disk. By scanning your cluster, it detects misconfigurations and helps you to ensure that best practices are in place, thus preventing future headaches. It aims at reducing the cognitive *over*load one faces when operating a Kubernetes cluster in the wild. Furthermore, if your cluster employs a metric-server, it reports potential resources over/under allocations and attempts to warn you should your cluster run out of capacity.
@@ -26,50 +32,29 @@ Popeye is a readonly tool, it does not alter any of your Kubernetes resources in
 
 ## Installation
 
-Popeye is available on Linux, OSX and Windows platforms.
+Use the upstream project for binaries, Homebrew, and Krew installs. This fork
+publishes only a container image:
 
-* Binaries for Linux, Windows and Mac are available as tarballs in
-  the [release](https://github.com/derailed/popeye/releases) page.
+* Pull the multi-arch image from GitHub Container Registry:
 
-* For OSX/Unit using Homebrew/LinuxBrew
-
-   ```shell
-   brew install derailed/popeye/popeye
-   ```
-* Using `go install`
- 
     ```shell
-    go install github.com/derailed/popeye@latest
+    docker pull ghcr.io/nudgebee/popeye:latest
+    # or pin to a specific release tag
+    docker pull ghcr.io/nudgebee/popeye:v0.11.1
     ```
 
-* Building from source
-   Popeye was built using go 1.12+. In order to build Popeye from source you must:
-   1. Clone the repo
-   2. Add the following command in your go.mod file
+* Build from source (Go 1.23+):
 
-      ```text
-      replace (
-        github.com/derailed/popeye => MY_POPEYE_CLONED_GIT_REPO
-      )
-      ```
+    ```shell
+    git clone https://github.com/nudgebee/popeye
+    cd popeye
+    make build
+    ./execs/popeye
+    ```
 
-   3. Build and run the executable
-
-        ```shell
-        go run main.go
-        ```
-
-   Quick recipe for the impatient:
-
-   ```shell
-   # Clone outside of GOPATH
-   git clone https://github.com/derailed/popeye
-   cd popeye
-   # Build and install
-   go install
-   # Run
-   popeye
-   ```
+For all other install methods (binaries, `brew`, `kubectl krew`, `go install`),
+follow the upstream project's instructions:
+<https://github.com/derailed/popeye#installation>.
 
 ## PreFlight Checks
 
