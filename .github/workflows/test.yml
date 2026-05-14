@@ -4,15 +4,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
-      - v0.11.1
+      - main
     tags:
       - "rc*"
       - "v*"
   pull_request:
     branches:
-      - master
-      - v0.11.1
+      - main
 
 permissions:
   contents: read
