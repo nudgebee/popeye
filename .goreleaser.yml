@@ -41,18 +41,3 @@ changelog:
     exclude:
       - "^docs:"
       - "^test:"
-
-# Homebrew
-brews:
-  - name: popeye
-    tap:
-      owner: derailed
-      name: popeye-homebrew-tap
-    commit_author:
-      name: derailed
-      email: fernand@imhotep.io
-    folder: Formula
-    homepage: https://imhotep.io/popeye
-    description: A Kubernetes Cluster sanitizer and linter.
-    test: |
-      system "popeye version"
