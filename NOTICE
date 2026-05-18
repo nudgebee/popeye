@@ -1,0 +1,13 @@
+Popeye
+Copyright 2020 Imhotep Software LLC
+
+This product includes software originally developed by:
+  Imhotep Software LLC <fernand@imhotep.io>
+  https://github.com/derailed/popeye
+
+This Nudgebee fork adds packaging and CI changes maintained by:
+  Nudgebee
+  https://github.com/nudgebee/popeye
+
+Both the upstream work and the fork modifications are licensed under the
+Apache License, Version 2.0. See LICENSE for the full license text.

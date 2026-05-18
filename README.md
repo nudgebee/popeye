@@ -17,18 +17,14 @@ Popeye is a readonly tool, it does not alter any of your Kubernetes resources in
 
 ---
 
+Upstream project badges (linked to derailed/popeye):
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/derailed/popeye?)](https://goreportcard.com/report/github.com/derailed/popeye)
-[![codebeat badge](https://codebeat.co/badges/827e5642-3ccc-4ecc-b22b-5707dbc34cf1)](https://codebeat.co/projects/github-com-derailed-popeye-master)
-[![Build Status](https://travis-ci.com/derailed/popeye.svg?branch=master)](https://travis-ci.com/derailed/popeye)
 [![release](https://img.shields.io/github/release-pre/derailed/popeye.svg)](https://github.com/derailed/popeye/releases)
 [![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/derailed/popeye/blob/master/LICENSE)
-[![docker](https://img.shields.io/docker/cloud/build/derailed/popeye?label=Docker&style=flat)](https://hub.docker.com/r/derailed/popeye/builds)
 ![GitHub stars](https://img.shields.io/github/stars/derailed/popeye.svg?label=github%20stars)
-[![Releases](https://img.shields.io/github/downloads/derailed/popeye/total.svg)]()
 
 ---
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/derailed/popeye)
 
 ## Installation
 
@@ -194,7 +190,7 @@ your local kube config directory into the container with `-v` :
 ```shell
   docker run --rm -it \
     -v $HOME/.kube:/root/.kube \
-    derailed/popeye --context foo -n bar
+    ghcr.io/nudgebee/popeye --context foo -n bar
 ```
 
 Running the above docker command with `--rm` means that the container gets
@@ -208,7 +204,7 @@ NOTE: You can override the default output directory location by setting `POPEYE_
     -v $HOME/.kube:/root/.kube \
     -e POPEYE_REPORT_DIR=/tmp/popeye \
     -v /tmp:/tmp \
-    derailed/popeye --context foo -n bar --save --output-file my_report.txt
+    ghcr.io/nudgebee/popeye --context foo -n bar --save --output-file my_report.txt
 
   # Docker has exited, and the container has been deleted, but the file
   # is in your /tmp directory because you mapped it into the container
@@ -365,7 +361,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: popeye
-              image: derailed/popeye
+              image: ghcr.io/nudgebee/popeye
               imagePullPolicy: IfNotPresent
               args:
                 - -o
@@ -516,8 +512,15 @@ to make this project a reality!
 
 ## Contact Info
 
+For questions about Popeye itself (behavior, features, bugs in the linters),
+contact the upstream project:
+
 1. **Email**:   fernand@imhotep.io
 2. **Twitter**: [@kitesurfer](https://twitter.com/kitesurfer?lang=en)
+
+For issues specific to this Nudgebee fork (container image, CI, Dockerfile),
+file an issue on this repository. For security reports against the fork's
+build artifacts, email **security@nudgebee.com** (see [SECURITY.md](./SECURITY.md)).
 
 ---
 

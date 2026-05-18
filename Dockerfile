@@ -16,7 +16,7 @@ COPY pkg pkg
 RUN make build
 
 # -----------------------------------------------------------------------------
-FROM alpine:3.19 
+FROM alpine:3.21
 
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /popeye/execs/popeye /bin/popeye
