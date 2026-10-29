@@ -1,6 +1,6 @@
 module github.com/derailed/popeye
 
-go 1.23.0
+go 1.26.0
 
 require (
 	github.com/aws/aws-sdk-go v1.35.21
@@ -11,7 +11,7 @@ require (
 	github.com/rs/zerolog v1.18.0
 	github.com/spf13/cobra v1.6.0
 	github.com/stretchr/testify v1.8.0
-	golang.org/x/net v0.38.0
+	golang.org/x/net v0.62.0
 	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/api v0.26.1
 	k8s.io/apimachinery v0.26.1
@@ -61,9 +61,9 @@ require (
 	github.com/xlab/treeprint v1.1.0 // indirect
 	go.starlark.net v0.0.0-20200306205701-8dd3e2ee1dd5 // indirect
 	golang.org/x/oauth2 v0.27.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
-	golang.org/x/term v0.30.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/term v0.47.0 // indirect
+	golang.org/x/text v0.43.0 // indirect
 	golang.org/x/time v0.0.0-20220210224613-90d013bbcef8 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
