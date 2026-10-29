@@ -547,7 +547,7 @@ func (p *Popeye) fileName() string {
 	if *p.flags.OutputFile == "" {
 		return fmt.Sprintf(outFmt, p.factory.Client().ActiveCluster(), time.Now().UnixNano(), p.fileExt())
 	}
-	return fmt.Sprintf(*p.flags.OutputFile)
+	return *p.flags.OutputFile
 }
 
 func (p *Popeye) fileExt() string {
