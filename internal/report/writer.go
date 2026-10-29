@@ -95,7 +95,7 @@ func (s *Sanitizer) Error(msg string, err error) {
 
 // Comment writes a comment line.
 func (s *Sanitizer) Comment(msg string) {
-	fmt.Fprint(s, "  · "+msg+"\n")
+	fmt.Fprint(s, "  · ", msg, "\n")
 }
 
 // Dump all errors to output.
